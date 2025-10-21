@@ -16,6 +16,19 @@
 
   cw1.addEventListener("click", function() {
     //TODO
+    fetch('https://jsonplaceholder.typicode.com/posts')
+      .then(response => response.json())
+      .then(array => {
+        let html = '';
+        array.forEach(function(item) {
+          html += `<div>${item.title}</div>`;
+        });
+        html += `<div>Total: ${array.length}</div>`;
+        answer.innerHTML = html;
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      })
   })
 
   cw2.addEventListener("click", function() {
