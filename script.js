@@ -20,12 +20,14 @@
     fetch('https://jsonplaceholder.typicode.com/posts')
       .then(response => response.json())
       .then(array => {
+        setTimeout(() => { 
         let html = '';
         array.forEach(function(item) {
           html += `<div>${item.title}</div>`;
         });
         html += `<div>Total: ${array.length}</div>`;
         answer.innerHTML = html;
+        }, 2000);
       })
       .catch(error => {
         console.error('Error:', error);
